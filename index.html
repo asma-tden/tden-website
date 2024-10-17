@@ -3,196 +3,141 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TDEn - Technical Data Enhancement</title>
+    <title>TDen - TDEMPIERE</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f9f9f9;
+            background-color: #EDEDED; /* Fond gris clair */
         }
         header {
-            background-color: #007BFF;
-            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #007BFF; /* Couleur proche du logo */
             padding: 20px;
-            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            color: #ffffff; /* Couleur du texte du header */
+            background-image: url('background_image.jpg'); /* Image de fond pour le header */
+            background-size: cover;
+            background-position: center;
+        }
+        header img {
+            max-height: 70px;
         }
         nav {
-            background-color: #0056b3;
-            padding: 10px 0;
+            background-color: #007BFF; /* Couleur de fond du nav */
+            padding: 10px;
         }
         nav ul {
             list-style: none;
-            padding: 0;
             display: flex;
             justify-content: center;
+            padding: 0;
         }
         nav ul li {
-            margin: 0 15px;
+            margin: 0 20px;
         }
         nav ul li a {
-            color: white;
+            color: #ffffff; /* Couleur du texte des liens */
             text-decoration: none;
             font-weight: bold;
         }
         nav ul li a:hover {
             text-decoration: underline;
         }
-        header img {
-            max-width: 150px; /* Ajuste la taille du logo selon tes besoins */
-            margin-bottom: 10px;
+        .headline {
+            text-align: center;
+            padding: 50px 20px;
+            color: #333;
+            font-size: 2.5rem;
+            font-weight: bold;
+            background-color: #ffffff; /* Fond blanc pour la phrase d'accueil */
+            border-radius: 0 0 20px 20px;
+            margin: 0; /* Supprimer la marge pour éviter le décalage */
         }
         section {
-            padding: 40px 20px;
+            padding: 40px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
             max-width: 1200px;
             margin: auto;
+            background-color: #EDEDED; /* Fond gris clair pour la section */
+            border-radius: 10px;
         }
-        h1, h2 {
-            color: #007BFF;
-            text-align: center;
-        }
-        .features, .pricing, .applications {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            margin-top: 20px;
-        }
-        .feature, .pricing-plan, .application {
+        .module {
+            width: 250px;
             background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin: 20px;
             padding: 20px;
-            margin: 10px;
-            flex: 1 1 300px;
             text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
-        .feature img, .pricing-plan img, .application img {
-            max-width: 100%;
-            height: auto;
-            margin-bottom: 10px;
+        .module img {
+            width: 80px;
+            height: 80px;
         }
-        .contact-form {
-            margin-top: 40px;
-            text-align: center;
-        }
-        input, textarea {
-            width: 80%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-        }
-        button {
-            background-color: #007BFF;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            cursor: pointer;
-            border-radius: 4px;
+        .module h3 {
+            color: #4A4A4A; /* Couleur du titre des modules */
+            font-size: 1.2rem;
+            margin-top: 10px;
         }
         footer {
             text-align: center;
             padding: 20px;
-            background-color: #007BFF;
-            color: white;
-            position: relative;
-            bottom: 0;
-            width: 100%;
+            background-color: #007BFF; /* Couleur de fond du footer */
+            color: #ffffff; /* Couleur du texte du footer */
         }
     </style>
 </head>
 <body>
 
 <header>
-    <img src="logo.png" alt="Logo de TDEn"> <!-- Remplace logo.png par le nom de ton fichier -->
-    <h1>TDEn</h1>
-    <p>Enhance Your Technical Data Management</p>
+    <img src="logo.png" alt="Logo TDen">
+    <h1>TDen</h1>
 </header>
 
 <nav>
     <ul>
-        <li><a href="#about">À propos</a></li>
-        <li><a href="#features">Fonctionnalités</a></li>
-        <li><a href="#pricing">Tarification</a></li>
         <li><a href="#applications">Applications</a></li>
+        <li><a href="#pricing">Tarification</a></li>
         <li><a href="#contact">Contact</a></li>
     </ul>
 </nav>
 
-<section id="about">
-    <h2>À propos de notre ERP</h2>
-    <p>TDEn propose une solution ERP open source qui vous permet de gérer vos données de manière efficace et personnalisable.</p>
+<div class="headline">
+    Transformez votre gestion d'entreprise avec TDEMPIERE !
+</div>
 
-    <h2 id="features">Fonctionnalités</h2>
-    <div class="features">
-        <div class="feature">
-            <img src="open-source.jpg" alt="Open Source">
-            <h3>Open Source</h3>
-            <p>Aucune licence à payer, avec une personnalisation complète.</p>
-        </div>
-        <div class="feature">
-            <img src="flexible.jpg" alt="Flexible ERP">
-            <h3>Flexible</h3>
-            <p>Adapté à divers secteurs avec des solutions sur mesure.</p>
-        </div>
-        <div class="feature">
-            <img src="community.jpg" alt="Communauté Active">
-            <h3>Communauté Active</h3>
-            <p>Rejoignez une communauté dynamique pour un soutien et des mises à jour régulières.</p>
-        </div>
+<!-- Applications Section -->
+<section id="applications">
+    <div class="module">
+        <img src="sales_icon.png" alt="Gestion des ventes">
+        <h3>Gestion des Ventes</h3>
     </div>
-
-    <h2 id="pricing">Tarification</h2>
-    <div class="pricing">
-        <div class="pricing-plan">
-            <img src="free-plan.jpg" alt="Gratuit">
-            <h3>Gratuit</h3>
-            <p>Accès complet à toutes les fonctionnalités de base.</p>
-        </div>
-        <div class="pricing-plan">
-            <img src="pro-plan.jpg" alt="Pro">
-            <h3>Pro</h3>
-            <p>99€/mois - Support premium et fonctionnalités avancées.</p>
-        </div>
-        <div class="pricing-plan">
-            <img src="enterprise-plan.jpg" alt="Entreprise">
-            <h3>Entreprise</h3>
-            <p>Contactez-nous pour un devis personnalisé.</p>
-        </div>
+    <div class="module">
+        <img src="inventory_icon.png" alt="Gestion des stocks">
+        <h3>Gestion des Stocks</h3>
     </div>
-
-    <h2 id="applications">Applications</h2>
-    <div class="applications">
-        <div class="application">
-            <img src="sales-management.jpg" alt="Gestion des Ventes">
-            <h3>Gestion des Ventes</h3>
-            <p>Suivez vos ventes et optimisez votre processus commercial.</p>
-			<a href="sales-process.html">En savoir plus sur le flux de vente</a>
-			
-        </div>
-        <div class="application">
-            <img src="inventory-management.jpg" alt="Gestion des Stocks">
-            <h3>Gestion des Stocks</h3>
-            <p>Gérez vos inventaires de manière efficace et automatisée.</p>
-        </div>
-        <div class="application">
-            <img src="financial-management.jpg" alt="Gestion Financière">
-            <h3>Gestion Financière</h3>
-            <p>Suivez vos finances et générez des rapports détaillés.</p>
-        </div>
+    <div class="module">
+        <img src="finance_icon.png" alt="Gestion Financière">
+        <h3>Gestion Financière</h3>
     </div>
-
-    <h2 id="contact">Contactez-nous</h2>
-    <div class="contact-form">
-        <input type="text" placeholder="Votre nom" required>
-        <input type="email" placeholder="Votre email" required>
-        <textarea placeholder="Votre message" rows="4" required></textarea>
-        <button type="submit">Envoyer</button>
+    <div class="module">
+        <img src="hr_icon.png" alt="Ressources Humaines">
+        <h3>Ressources Humaines</h3>
+    </div>
+    <div class="module">
+        <img src="crm_icon.png" alt="CRM">
+        <h3>CRM</h3>
     </div>
 </section>
 
 <footer>
-    <p>&copy; 2024 TDEn. Tous droits réservés.</p>
+    <p>&copy; 2024 TDen - TDEMPIERE. Tous droits réservés.</p>
 </footer>
 
 </body>
