@@ -15,10 +15,9 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background-color: #007BFF; /* Couleur proche du logo */
+            background-color: #007BFF;
             padding: 20px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            color: #ffffff; /* Couleur du texte du header */
+            color: #ffffff;
             background-image: url('background.jpg'); /* Image de fond pour le header */
             background-size: cover;
             background-position: center;
@@ -27,35 +26,54 @@
             max-height: 70px;
         }
         nav {
-            background-color: #007BFF; /* Couleur de fond du nav */
-            padding: 10px;
+            background-color: #f0f0f0; /* Fond gris clair pour le menu */
+            padding: 10px 0;
         }
         nav ul {
             list-style: none;
             display: flex;
             justify-content: center;
             padding: 0;
+            margin: 0;
         }
         nav ul li {
             margin: 0 20px;
         }
         nav ul li a {
-            color: #ffffff; /* Couleur du texte des liens */
+            color: #007BFF; /* Couleur du texte des liens */
             text-decoration: none;
             font-weight: bold;
+            transition: color 0.3s; /* Transition douce pour le changement de couleur */
         }
         nav ul li a:hover {
+            color: #0056b3; /* Couleur au survol */
             text-decoration: underline;
         }
+        /* Style de la phrase d'accroche */
         .headline {
             text-align: center;
-            padding: 50px 20px;
-            color: #333;
+            margin: 40px 20px;
+            font-family: 'Brush Script MT', cursive, sans-serif; /* Style d'écriture dynamique */
+            color: #2B2B2B;
+        }
+        .headline h1 {
             font-size: 2.5rem;
             font-weight: bold;
-            background-color: #ffffff; /* Fond blanc pour la phrase d'accueil */
-            border-radius: 0 0 20px 20px;
-            margin: 0; /* Supprimer la marge pour éviter le décalage */
+            line-height: 1.2;
+        }
+        .headline .highlight {
+            background-color: #00BFFF; /* Couleur bleu clair pour le surlignage */
+            padding: 5px 8px;
+            border-radius: 5px;
+        }
+        .subheadline {
+            font-size: 1.3rem;
+            font-weight: 400;
+            color: #2B2B2B;
+            font-style: italic; /* Mettre en italique pour un style plus élégant */
+            text-decoration: underline;
+            text-decoration-color: #007BFF; /* Soulignement bleu foncé pour cohérence */
+            margin-top: 10px;
         }
         section {
             padding: 40px;
@@ -64,7 +82,7 @@
             justify-content: space-around;
             max-width: 1200px;
             margin: auto;
-            background-color: #EDEDED; /* Fond gris clair pour la section */
+            background-color: #EDEDED;
             border-radius: 10px;
         }
         .module {
@@ -75,21 +93,115 @@
             text-align: center;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .module:hover {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            transform: scale(1.05);
         }
         .module img {
             width: 80px;
             height: 80px;
         }
         .module h3 {
-            color: #4A4A4A; /* Couleur du titre des modules */
+            color: #4A4A4A;
             font-size: 1.2rem;
             margin-top: 10px;
         }
+        .module button {
+            margin-top: 10px;
+            padding: 10px 15px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        .module button:hover {
+            background-color: #0056b3;
+        }
         footer {
-            text-align: center;
+            display: flex;
+            justify-content: space-between; /* Aligner le contenu à gauche et à droite */
             padding: 20px;
-            background-color: #007BFF; /* Couleur de fond du footer */
-            color: #ffffff; /* Couleur du texte du footer */
+            background-color: #007BFF;
+            color: #ffffff;
+        }
+        .footer-left {
+            text-align: left; /* Aligner le texte à gauche */
+        }
+        .footer-left h2 {
+            margin: 0;
+            font-size: 1.5rem;
+            color: #ffffff;
+        }
+        .footer-left p {
+            margin: 5px 0;
+        }
+        .footer-right {
+            text-align: right; /* Alignement à droite pour les informations de contact */
+        }
+        .footer-right h2 {
+            margin: 0;
+            font-size: 1.5rem;
+            color: #ffffff;
+        }
+        .footer-right p {
+            margin: 5px 0;
+        }
+        /* Nouvelle section footer améliorée */
+        .footer-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+            background-color: #f8f8f8; /* Fond clair pour le footer */
+            border-top: 2px solid #007BFF; /* Ligne de séparation */
+        }
+        .social-links {
+            margin: 20px 0;
+        }
+        .social-links a {
+            margin: 0 10px;
+            text-decoration: none;
+            color: #007BFF;
+            font-size: 1.5rem; /* Taille des icônes de réseaux sociaux */
+        }
+        .social-links a:hover {
+            color: #0056b3; /* Couleur au survol */
+        }
+        .call-to-action {
+            background-color: #007BFF; /* Fond bleu pour le bouton */
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+        }
+        .call-to-action:hover {
+            background-color: #0056b3; /* Couleur au survol du bouton */
+        }
+        @media (max-width: 768px) {
+            .module {
+                width: 100%;
+                margin: 10px 0;
+            }
+            nav ul {
+                flex-direction: column;
+                align-items: center; /* Centrer les éléments sur mobile */
+            }
+            nav ul li {
+                margin: 10px 0;
+            }
+            footer {
+                flex-direction: column; /* Empiler les sections du footer sur mobile */
+                align-items: center;
+            }
         }
     </style>
 </head>
@@ -108,36 +220,54 @@
     </ul>
 </nav>
 
+<!-- Phrase d'accroche -->
 <div class="headline">
-    Transformez votre gestion d'entreprise avec TDEMPIERE !
+    <h1>Un ERP, une solution : <span class="highlight">toute votre entreprise sur une seule plateforme.</span></h1>
+    <p class="subheadline">Simple, puissante et abordable !</p>
 </div>
 
 <!-- Applications Section -->
 <section id="applications">
-    <div class="module">
-        <img src="sales_icon.png" alt="Gestion des ventes">
-        <h3>Gestion des Ventes</h3>
-    </div>
+   <div class="module">
+    <img src="sales_icon.png" alt="Gestion des ventes">
+    <h3>Gestion des Ventes</h3>
+    <button onclick="window.location.href='gestion_ventes.html';">En savoir plus</button> <!-- Lien vers la nouvelle page -->
+</div>
     <div class="module">
         <img src="inventory_icon.png" alt="Gestion des stocks">
         <h3>Gestion des Stocks</h3>
+        <button>En savoir plus</button>
     </div>
     <div class="module">
         <img src="finance_icon.png" alt="Gestion Financière">
         <h3>Gestion Financière</h3>
+        <button>En savoir plus</button>
     </div>
     <div class="module">
         <img src="hr_icon.png" alt="Ressources Humaines">
         <h3>Ressources Humaines</h3>
+        <button>En savoir plus</button>
     </div>
     <div class="module">
         <img src="crm_icon.png" alt="CRM">
         <h3>CRM</h3>
+        <button>En savoir plus</button>
     </div>
 </section>
 
+<!-- Pied de page divisé -->
 <footer>
-    <p>&copy; 2024 TDEn - TDEMPIERE. Tous droits réservés.</p>
+    <div class="footer-left">
+        <h2>TDEn</h2>
+        <p>TDEMPIERE</p>
+        <p>Expertise de plus de 15 ans dans le domaine ERP.</p>
+    </div>
+    <div class="footer-right">
+        <h2>Nous Contacter</h2>
+        <p>Email : contact@tden.com.tn</p>
+        <p>Téléphone : +216 29776544</p>
+        <p>Adresse : Zone Urbaine, Tunis</p>
+    </div>
 </footer>
 
 </body>
