@@ -106,7 +106,7 @@
             padding: 20px;
             border-radius: 10px;
             text-align: center;
-            width: calc(50% - 10px); /* Deux tuiles par ligne */
+            width: calc(48% - 10px); /* Réduire la largeur pour deux tuiles */
             transition: transform 0.3s;
         }
         .tile:hover {
@@ -114,8 +114,8 @@
             background-color: #FFEFD5; /* Changement de couleur au survol */
         }
         .tile img {
-            width: 60px;
-            height: 60px;
+            width: 80px; /* Augmenter la taille des images */
+            height: 80px; /* Ajuster la hauteur des images */
             margin-bottom: 10px;
         }
         .tile h3 {
@@ -152,15 +152,22 @@
             background-color: #0056b3; /* Couleur au survol */
         }
         footer {
-            background-color: #007BFF;
+            background-image: url('footer-background.jpg'); /* Remplacez par le chemin de votre image de pied de page */
+            background-size: cover;
             color: #ffffff;
             padding: 20px;
             width: 100%;
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .footer-content {
+            text-align: center;
+            margin: 10px 0;
         }
         .footer-section {
-            text-align: left;
+            margin-bottom: 10px;
         }
         @media (max-width: 768px) {
             .content-section {
@@ -263,22 +270,31 @@
                     <label for="demo-type">Type de Démo :</label>
                     <select id="demo-type" name="demo-type">
                         <option value="online">Démo en ligne</option>
-                        <option value="video">Vidéo de démonstration</option>
-                        <option value="on-site">Démo sur site</option>
+                        <option value="video">Vidéo intégrée</option>
+                        <option value="onsite">Démo sur site</option>
                     </select>
                 </div>
-                <button type="submit">Demander une démo</button>
+                <button type="submit">Demander une Démo</button>
             </form>
         </div>
     </div>
 </div>
 
 <footer>
-    <div class="footer-section">
-        <p>&copy; 2024 TDen. Tous droits réservés.</p>
-    </div>
-    <div class="footer-section">
-        <p>Adresse : 123 Rue de l'Innovation, Bizerte, Tunisie</p>
+    <img src="footer-logo.png" alt="Logo TDen" style="max-height: 60px; margin-bottom: 10px;"> <!-- Image de pied de page -->
+    <div class="footer-content">
+        <div class="footer-section">
+            <p><strong>TDEn</strong></p>
+            <p><strong>TDEMPIERE</strong></p>
+            <p>Expertise de plus de 15 ans dans le domaine ERP.</p>
+        </div>
+        <div class="footer-section">
+            <p><strong>Nous Contacter</strong></p>
+            <p>Email : contact@tden.com.tn</p>
+            <p>Site web : TDEMPIERE@tden.com.tn</p>
+            <p>Téléphone : +216 29 776 544</p>
+            <p>Adresse : Zone Urbaine, Tunis</p>
+        </div>
     </div>
 </footer>
 
