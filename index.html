@@ -9,25 +9,47 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #EDEDED; /* Fond gris clair */
+            background-color: #EDEDED;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background-color: #007BFF;
+            background-image: url('background.jpg'); /* Remplacez par le chemin de votre image de fond */
+            background-size: cover;
             padding: 20px;
             color: #ffffff;
-            background-image: url('background.jpg'); /* Image de fond pour le header */
-            background-size: cover;
-            background-position: center;
+            width: 100%;
+            position: relative;
+        }
+        header .logo {
+            display: flex;
+            align-items: center;
         }
         header img {
-            max-height: 70px;
+            max-height: 60px;
+            margin-right: 15px;
+        }
+        header h1 {
+            font-size: 1.5rem;
+            color: #ffffff;
+        }
+        .banner {
+            background-color: #FFD700;
+            color: #000;
+            padding: 10px;
+            width: 100%;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.2rem;
         }
         nav {
-            background-color: #f0f0f0; /* Fond gris clair pour le menu */
+            background-color: #f0f0f0;
             padding: 10px 0;
+            width: 100%;
         }
         nav ul {
             list-style: none;
@@ -40,167 +62,116 @@
             margin: 0 20px;
         }
         nav ul li a {
-            color: #007BFF; /* Couleur du texte des liens */
+            color: #007BFF;
             text-decoration: none;
             font-weight: bold;
-            transition: color 0.3s; /* Transition douce pour le changement de couleur */
         }
-        nav ul li a:hover {
-            color: #0056b3; /* Couleur au survol */
-            text-decoration: underline;
-        }
-        /* Style de la phrase d'accroche */
         .headline {
             text-align: center;
             margin: 40px 20px;
-            font-family: 'Brush Script MT', cursive, sans-serif; /* Style d'écriture dynamique */
             color: #2B2B2B;
         }
-        .headline h1 {
-            font-size: 2.5rem;
-            font-weight: bold;
-            line-height: 1.2;
-        }
-        .headline .highlight {
-            background-color: #00BFFF; /* Couleur bleu clair pour le surlignage */
-            padding: 5px 8px;
-            border-radius: 5px;
-        }
-        .subheadline {
-            font-size: 1.3rem;
-            font-weight: 400;
-            color: #2B2B2B;
-            font-style: italic; /* Mettre en italique pour un style plus élégant */
-            text-decoration: underline;
-            text-decoration-color: #007BFF; /* Soulignement bleu foncé pour cohérence */
-            margin-top: 10px;
-        }
-        section {
-            padding: 40px;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-            max-width: 1200px;
-            margin: auto;
-            background-color: #EDEDED;
-            border-radius: 10px;
-        }
-        .module {
-            width: 250px;
-            background-color: white;
-            margin: 20px;
-            padding: 20px;
+        .description {
             text-align: center;
+            font-size: 1.1rem;
+            color: #333;
+            margin: 0 auto 20px;
+            width: 80%;
+        }
+        .content-section {
+            display: flex;
+            max-width: 1200px;
+            width: 100%;
+            margin: 20px auto;
+            justify-content: space-between;
+        }
+        .applications, .sidebar {
+            background-color: #FFFFFF;
+            padding: 20px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        .module:hover {
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        .applications {
+            width: 65%;
+            margin-right: 20px;
+        }
+        .tile-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .tile {
+            background-color: #FAFAD2; /* Blanc cassé */
+            color: #333;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            width: calc(50% - 10px); /* Deux tuiles par ligne */
+            transition: transform 0.3s;
+        }
+        .tile:hover {
             transform: scale(1.05);
+            background-color: #FFEFD5; /* Changement de couleur au survol */
         }
-        .module img {
-            width: 80px;
-            height: 80px;
+        .tile img {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 10px;
         }
-        .module h3 {
-            color: #4A4A4A;
+        .tile h3 {
             font-size: 1.2rem;
             margin-top: 10px;
         }
-        .module button {
-            margin-top: 10px;
-            padding: 10px 15px;
-            background-color: #007BFF;
+        .sidebar {
+            width: 30%;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #007BFF; /* Couleur bleue pour les boutons */
             color: #fff;
             border: none;
+            padding: 10px 15px;
             border-radius: 5px;
             cursor: pointer;
-            font-weight: bold;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s;
         }
-        .module button:hover {
-            background-color: #0056b3;
+        button:hover {
+            background-color: #0056b3; /* Couleur au survol */
         }
         footer {
-            display: flex;
-            justify-content: space-between; /* Aligner le contenu à gauche et à droite */
-            padding: 20px;
             background-color: #007BFF;
             color: #ffffff;
-        }
-        .footer-left {
-            text-align: left; /* Aligner le texte à gauche */
-        }
-        .footer-left h2 {
-            margin: 0;
-            font-size: 1.5rem;
-            color: #ffffff;
-        }
-        .footer-left p {
-            margin: 5px 0;
-        }
-        .footer-right {
-            text-align: right; /* Alignement à droite pour les informations de contact */
-        }
-        .footer-right h2 {
-            margin: 0;
-            font-size: 1.5rem;
-            color: #ffffff;
-        }
-        .footer-right p {
-            margin: 5px 0;
-        }
-        /* Nouvelle section footer améliorée */
-        .footer-section {
+            padding: 20px;
+            width: 100%;
             display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 40px 20px;
-            background-color: #f8f8f8; /* Fond clair pour le footer */
-            border-top: 2px solid #007BFF; /* Ligne de séparation */
+            justify-content: space-between;
         }
-        .social-links {
-            margin: 20px 0;
-        }
-        .social-links a {
-            margin: 0 10px;
-            text-decoration: none;
-            color: #007BFF;
-            font-size: 1.5rem; /* Taille des icônes de réseaux sociaux */
-        }
-        .social-links a:hover {
-            color: #0056b3; /* Couleur au survol */
-        }
-        .call-to-action {
-            background-color: #007BFF; /* Fond bleu pour le bouton */
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 1rem;
-            margin-top: 10px;
-            transition: background-color 0.3s ease;
-        }
-        .call-to-action:hover {
-            background-color: #0056b3; /* Couleur au survol du bouton */
+        .footer-section {
+            text-align: left;
         }
         @media (max-width: 768px) {
-            .module {
+            .content-section {
+                flex-direction: column;
+            }
+            .applications, .sidebar {
                 width: 100%;
                 margin: 10px 0;
             }
-            nav ul {
-                flex-direction: column;
-                align-items: center; /* Centrer les éléments sur mobile */
-            }
-            nav ul li {
-                margin: 10px 0;
-            }
-            footer {
-                flex-direction: column; /* Empiler les sections du footer sur mobile */
-                align-items: center;
+            .tile {
+                width: 100%; /* Tuiles prennent toute la largeur sur mobile */
             }
         }
     </style>
@@ -208,9 +179,15 @@
 <body>
 
 <header>
-    <img src="logo.png" alt="Logo TDen">
-    <h1>TDen</h1>
+    <div class="logo">
+        <img src="logo.png" alt="Logo TDen">
+        <h1>TDen - TDEMPIERE</h1>
+    </div>
 </header>
+
+<div class="banner">
+    🎉 1 Mois d'essai gratuit - Découvrez notre ERP dès aujourd'hui ! 🎉
+</div>
 
 <nav>
     <ul>
@@ -220,53 +197,88 @@
     </ul>
 </nav>
 
-<!-- Phrase d'accroche -->
 <div class="headline">
-    <h1>Un ERP, une solution : <span class="highlight">toute votre entreprise sur une seule plateforme.</span></h1>
-    <p class="subheadline">Simple, puissante et abordable !</p>
+    <h1>Optimisez votre entreprise avec TDEMPIERE, l'ERP tout-en-un.</h1>
+    <p class="description">Découvrez la puissance d'une solution ERP tout-en-un. Organisez, optimisez et développez votre activité avec TDEMPIERE.</p>
 </div>
 
-<!-- Applications Section -->
-<section id="applications">
-   <div class="module">
-    <img src="sales_icon.png" alt="Gestion des ventes">
-    <h3>Gestion des Ventes</h3>
-    <button onclick="window.location.href='gestion_ventes.html';">En savoir plus</button> <!-- Lien vers la nouvelle page -->
-</div>
-    <div class="module">
-        <img src="inventory_icon.png" alt="Gestion des stocks">
-        <h3>Gestion des Stocks</h3>
-        <button>En savoir plus</button>
+<div class="content-section">
+    <!-- Applications Section -->
+    <div class="applications" id="applications">
+        <h2>Nos Applications</h2>
+        <div class="tile-container">
+            <div class="tile">
+                <img src="sales_icon.png" alt="Gestion des Ventes">
+                <h3>Gestion des Ventes</h3>
+                <button onclick="window.location.href='gestion_ventes.html';">En savoir plus</button>
+            </div>
+            <div class="tile">
+                <img src="inventory_icon.png" alt="Gestion des Stocks">
+                <h3>Gestion des Stocks</h3>
+                <button onclick="window.location.href='gestion_stocks.html';">En savoir plus</button>
+            </div>
+            <div class="tile">
+                <img src="finance_icon.png" alt="Gestion Financière">
+                <h3>Gestion Financière</h3>
+                <button>En savoir plus</button>
+            </div>
+            <div class="tile">
+                <img src="hr_icon.png" alt="Ressources Humaines">
+                <h3>Ressources Humaines</h3>
+                <button>En savoir plus</button>
+            </div>
+            <div class="tile">
+                <img src="crm_icon.png" alt="CRM">
+                <h3>CRM</h3>
+                <button>En savoir plus</button>
+            </div>
+        </div>
     </div>
-    <div class="module">
-        <img src="finance_icon.png" alt="Gestion Financière">
-        <h3>Gestion Financière</h3>
-        <button>En savoir plus</button>
-    </div>
-    <div class="module">
-        <img src="hr_icon.png" alt="Ressources Humaines">
-        <h3>Ressources Humaines</h3>
-        <button>En savoir plus</button>
-    </div>
-    <div class="module">
-        <img src="crm_icon.png" alt="CRM">
-        <h3>CRM</h3>
-        <button>En savoir plus</button>
-    </div>
-</section>
 
-<!-- Pied de page divisé -->
+    <!-- Sidebar with Contact and Demo Request -->
+    <div class="sidebar">
+        <div class="module">
+            <h3>Contactez-nous</h3>
+            <form>
+                <div class="form-group">
+                    <label for="name">Nom :</label>
+                    <input type="text" id="name" name="name">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email :</label>
+                    <input type="email" id="email" name="email">
+                </div>
+                <div class="form-group">
+                    <label for="message">Message :</label>
+                    <textarea id="message" name="message" rows="4"></textarea>
+                </div>
+                <button type="submit">Envoyer</button>
+            </form>
+        </div>
+
+        <div class="module">
+            <h3>Demander une Démo</h3>
+            <form>
+                <div class="form-group">
+                    <label for="demo-type">Type de Démo :</label>
+                    <select id="demo-type" name="demo-type">
+                        <option value="online">Démo en ligne</option>
+                        <option value="video">Vidéo de démonstration</option>
+                        <option value="on-site">Démo sur site</option>
+                    </select>
+                </div>
+                <button type="submit">Demander une démo</button>
+            </form>
+        </div>
+    </div>
+</div>
+
 <footer>
-    <div class="footer-left">
-        <h2>TDEn</h2>
-        <p>TDEMPIERE</p>
-        <p>Expertise de plus de 15 ans dans le domaine ERP.</p>
+    <div class="footer-section">
+        <p>&copy; 2024 TDen. Tous droits réservés.</p>
     </div>
-    <div class="footer-right">
-        <h2>Nous Contacter</h2>
-        <p>Email : contact@tden.com.tn</p>
-        <p>Téléphone : +216 29776544</p>
-        <p>Adresse : Zone Urbaine, Tunis</p>
+    <div class="footer-section">
+        <p>Adresse : 123 Rue de l'Innovation, Bizerte, Tunisie</p>
     </div>
 </footer>
 
