@@ -99,6 +99,7 @@
             display: flex;
             flex-wrap: wrap;
             gap: 20px;
+            justify-content: center; /* Center the tiles */
         }
         .tile {
             background-color: #FAFAD2; /* Blanc cassé */
@@ -106,7 +107,7 @@
             padding: 20px;
             border-radius: 10px;
             text-align: center;
-            width: calc(48% - 10px); /* Réduire la largeur pour deux tuiles */
+            width: calc(45% - 10px); /* Ajuster la largeur pour deux tuiles par ligne */
             transition: transform 0.3s;
         }
         .tile:hover {
@@ -114,8 +115,8 @@
             background-color: #FFEFD5; /* Changement de couleur au survol */
         }
         .tile img {
-            width: 80px; /* Augmenter la taille des images */
-            height: 80px; /* Ajuster la hauteur des images */
+            width: 100px; /* Augmenter la taille des images */
+            height: 100px; /* Ajuster la hauteur des images */
             margin-bottom: 10px;
         }
         .tile h3 {
@@ -154,7 +155,7 @@
         footer {
             background-image: url('footer-background.jpg'); /* Remplacez par le chemin de votre image de pied de page */
             background-size: cover;
-            color: #ffffff;
+            color: #000; /* Couleur de texte noir */
             padding: 20px;
             width: 100%;
             display: flex;
@@ -163,11 +164,16 @@
             justify-content: center;
         }
         .footer-content {
-            text-align: center;
+            text-align: left;
             margin: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 1200px;
         }
         .footer-section {
             margin-bottom: 10px;
+            width: 48%; /* Utilisation de la moitié de la largeur */
         }
         @media (max-width: 768px) {
             .content-section {
@@ -180,6 +186,23 @@
             .tile {
                 width: 100%; /* Tuiles prennent toute la largeur sur mobile */
             }
+            .footer-content {
+                flex-direction: column;
+            }
+            .footer-section {
+                width: 100%; /* Section pleine largeur sur mobile */
+            }
+        }
+        /* Style pour l'iframe de la vidéo */
+        .video-container {
+            margin-top: 15px;
+            text-align: center;
+        }
+        .video-container iframe {
+            width: 100%;
+            height: 315px; /* Ajustez la hauteur si nécessaire */
+            border: none;
+            border-radius: 10px;
         }
     </style>
 </head>
@@ -249,15 +272,11 @@
             <form>
                 <div class="form-group">
                     <label for="name">Nom :</label>
-                    <input type="text" id="name" name="name">
+                    <input type="text" id="name" name="name" required>
                 </div>
                 <div class="form-group">
                     <label for="email">Email :</label>
-                    <input type="email" id="email" name="email">
-                </div>
-                <div class="form-group">
-                    <label for="message">Message :</label>
-                    <textarea id="message" name="message" rows="4"></textarea>
+                    <input type="email" id="email" name="email" required>
                 </div>
                 <button type="submit">Envoyer</button>
             </form>
@@ -267,34 +286,37 @@
             <h3>Demander une Démo</h3>
             <form>
                 <div class="form-group">
-                    <label for="demo-type">Type de Démo :</label>
-                    <select id="demo-type" name="demo-type">
-                        <option value="online">Démo en ligne</option>
-                        <option value="video">Vidéo intégrée</option>
-                        <option value="onsite">Démo sur site</option>
-                    </select>
+                    <label for="demo-name">Nom :</label>
+                    <input type="text" id="demo-name" name="demo-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="demo-email">Email :</label>
+                    <input type="email" id="demo-email" name="demo-email" required>
                 </div>
                 <button type="submit">Demander une Démo</button>
             </form>
+            <div class="video-container">
+                <h4>Regardez notre vidéo de présentation :</h4>
+                <iframe src="https://www.youtube.com/embed/vuDKoPpG3cQ" allowfullscreen></iframe>
+            </div>
         </div>
     </div>
 </div>
 
 <footer>
-    <img src="footer-logo.png" alt="Logo TDen" style="max-height: 60px; margin-bottom: 10px;"> <!-- Image de pied de page -->
     <div class="footer-content">
-        <div class="footer-section">
-            <p><strong>TDEn</strong></p>
-            <p><strong>TDEMPIERE</strong></p>
-            <p>Expertise de plus de 15 ans dans le domaine ERP.</p>
+        <div class="footer-section left">
+            <h3>À propos de TDEn</h3>
+            <p>TDEn est un fournisseur d'ERP open-source qui aide les entreprises à rationaliser leurs opérations.</p>
         </div>
-        <div class="footer-section">
-            <p><strong>Nous Contacter</strong></p>
-            <p>Email : contact@tden.com.tn</p>
-            <p>Site web : TDEMPIERE@tden.com.tn</p>
-            <p>Téléphone : +216 29 776 544</p>
-            <p>Adresse : Zone Urbaine, Tunis</p>
+        <div class="footer-section right">
+            <h3>Contact</h3>
+            <p>Email : contact@tden.com</p>
+            <p>Téléphone : +216 12 345 678</p>
         </div>
+    </div>
+    <div style="text-align: center; margin-top: 10px;">
+        <p>&copy; 2024 TDEn. Tous droits réservés.</p>
     </div>
 </footer>
 
