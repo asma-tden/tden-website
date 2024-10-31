@@ -103,14 +103,21 @@
             gap: 20px;
             justify-items: center;
         }
-        .tile {
-            background-color: #FAFAD2;
-            color: #333;
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-            transition: transform 0.3s;
-        }
+ .tile {
+    background-color: transparent; /* Removed the yellow background */
+    color: #333;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.tile img {
+    width: 120px; /* Increased size */
+    height: 120px; /* Increased size */
+    border-radius: 50%; /* Added rounded border */
+    margin-bottom: 10px;
+}
         .tile:hover {
             transform: scale(1.05);
             background-color: #FFEFD5;
