@@ -18,7 +18,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background-image: url('background.jpg'); /* Remplacez par le chemin de votre image de fond */
+            background-image: url('background.jpg');
             background-size: cover;
             padding: 20px;
             color: #ffffff;
@@ -30,12 +30,12 @@
             align-items: center;
         }
         header img {
-            max-height: 60px;
+            max-height: 80px;
             margin-right: 15px;
         }
         header h1 {
-            font-size: 1.5rem;
-            color: #ffffff;
+            font-size: 1.8rem;
+            color: #000;
         }
         .banner {
             background-color: #FFD700;
@@ -96,27 +96,26 @@
             margin-right: 20px;
         }
         .tile-container {
-            display: flex;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Utilisation de la grille */
             gap: 20px;
-            justify-content: center; /* Center the tiles */
+            justify-items: center; /* Centre les tuiles */
         }
         .tile {
-            background-color: #FAFAD2; /* Blanc cassé */
+            background-color: #FAFAD2;
             color: #333;
             padding: 20px;
             border-radius: 10px;
             text-align: center;
-            width: calc(45% - 10px); /* Ajuster la largeur pour deux tuiles par ligne */
             transition: transform 0.3s;
         }
         .tile:hover {
             transform: scale(1.05);
-            background-color: #FFEFD5; /* Changement de couleur au survol */
+            background-color: #FFEFD5;
         }
         .tile img {
-            width: 100px; /* Augmenter la taille des images */
-            height: 100px; /* Ajuster la hauteur des images */
+            width: 100px;
+            height: 100px;
             margin-bottom: 10px;
         }
         .tile h3 {
@@ -141,7 +140,7 @@
             border-radius: 5px;
         }
         button {
-            background-color: #007BFF; /* Couleur bleue pour les boutons */
+            background-color: #007BFF;
             color: #fff;
             border: none;
             padding: 10px 15px;
@@ -150,12 +149,12 @@
             transition: background-color 0.3s;
         }
         button:hover {
-            background-color: #0056b3; /* Couleur au survol */
+            background-color: #0056b3;
         }
         footer {
-            background-image: url('footer-background.jpg'); /* Remplacez par le chemin de votre image de pied de page */
+            background-image: url('footer-background.jpg');
             background-size: cover;
-            color: #000; /* Couleur de texte noir */
+            color: #000;
             padding: 20px;
             width: 100%;
             display: flex;
@@ -173,7 +172,7 @@
         }
         .footer-section {
             margin-bottom: 10px;
-            width: 48%; /* Utilisation de la moitié de la largeur */
+            width: 48%;
         }
         @media (max-width: 768px) {
             .content-section {
@@ -183,26 +182,29 @@
                 width: 100%;
                 margin: 10px 0;
             }
-            .tile {
-                width: 100%; /* Tuiles prennent toute la largeur sur mobile */
-            }
             .footer-content {
                 flex-direction: column;
             }
             .footer-section {
-                width: 100%; /* Section pleine largeur sur mobile */
+                width: 100%;
             }
         }
-        /* Style pour l'iframe de la vidéo */
         .video-container {
             margin-top: 15px;
             text-align: center;
         }
         .video-container iframe {
             width: 100%;
-            height: 315px; /* Ajustez la hauteur si nécessaire */
+            height: 315px;
             border: none;
             border-radius: 10px;
+        }
+        .contact-module {
+            background-color: #FAFAD2;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
     </style>
 </head>
@@ -210,7 +212,7 @@
 
 <header>
     <div class="logo">
-        <img src="logo.png" alt="Logo TDen">
+        <img src="logo.png" alt="Logo de TDen - TDEMPIERE">
         <h1>TDen - TDEMPIERE</h1>
     </div>
 </header>
@@ -233,7 +235,6 @@
 </div>
 
 <div class="content-section">
-    <!-- Applications Section -->
     <div class="applications" id="applications">
         <h2>Nos Applications</h2>
         <div class="tile-container">
@@ -265,23 +266,7 @@
         </div>
     </div>
 
-    <!-- Sidebar with Contact and Demo Request -->
     <div class="sidebar">
-        <div class="module">
-            <h3>Contactez-nous</h3>
-            <form>
-                <div class="form-group">
-                    <label for="name">Nom :</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email :</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <button type="submit">Envoyer</button>
-            </form>
-        </div>
-
         <div class="module">
             <h3>Demander une Démo</h3>
             <form>
@@ -293,12 +278,50 @@
                     <label for="demo-email">Email :</label>
                     <input type="email" id="demo-email" name="demo-email" required>
                 </div>
+                <div class="form-group">
+                    <label for="demo-type">Type de démo :</label>
+                    <select id="demo-type" name="demo-type" required>
+                        <option value="en_ligne">Démo en ligne</option>
+                        <option value="sur_site">Démo sur site</option>
+                        <option value="video">Vidéo de démo</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="modules">Modules :</label>
+                    <select id="modules" name="modules[]" multiple required>
+                        <option value="achat">Module Achat</option>
+                        <option value="vente">Module Vente</option>
+                        <option value="stock">Module Stock</option>
+                        <option value="comptabilite">Comptabilité</option>
+                        <option value="ressources_humaines">Ressources Humaines</option>
+                        <option value="fabrication">Module Fabrication</option>
+                    </select>
+                </div>
                 <button type="submit">Demander une Démo</button>
             </form>
             <div class="video-container">
-                <h4>Regardez notre vidéo de présentation :</h4>
+                <h4>Découvrez notre solution en action !</h4>
                 <iframe src="https://www.youtube.com/embed/vuDKoPpG3cQ" allowfullscreen></iframe>
             </div>
+        </div>
+
+        <div class="contact-module">
+            <h3>Contactez-nous pour des demandes spécifiques</h3>
+            <form>
+                <div class="form-group">
+                    <label for="contact-name">Nom :</label>
+                    <input type="text" id="contact-name" name="contact-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="contact-email">Email :</label>
+                    <input type="email" id="contact-email" name="contact-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="contact-message">Message :</label>
+                    <textarea id="contact-message" name="contact-message" rows="4" required></textarea>
+                </div>
+                <button type="submit">Envoyer</button>
+            </form>
         </div>
     </div>
 </div>
@@ -311,8 +334,8 @@
         </div>
         <div class="footer-section right">
             <h3>Contact</h3>
-            <p>Email : contact@tden.com</p>
-            <p>Téléphone : +216 12 345 678</p>
+            <p>Email : contact@tden.com.tn</p>
+            <p>Téléphone : +216 29 776 544</p>
         </div>
     </div>
     <div style="text-align: center; margin-top: 10px;">
