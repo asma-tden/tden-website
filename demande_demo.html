@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+
+    <title>Demande de Démo - TDEn</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #EDEDED;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-image: url('background.jpg');
+            background-size: cover;
+            padding: 20px;
+            color: #ffffff;
+            width: 100%;
+            position: relative;
+        }
+        header .logo {
+            display: flex;
+            align-items: center;
+        }
+        header h1 {
+            font-size: 1.8rem;
+            color: #002147; /* Couleur bleue très foncée */
+        }
+        .content {
+            margin: 40px;
+            text-align: center;
+            width: 100%;
+            max-width: 600px;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .form-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        button:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+        .home-button {
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            font-weight: bold;
+            color: #007BFF;
+        }
+        .home-button img {
+            width: 20px;
+            vertical-align: middle;
+            margin-right: 5px;
+        }
+       footer {
+            background-image: url('footer-background.jpg');
+            background-size: cover;
+            color: #000;
+            padding: 20px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .footer-content {
+            text-align: left;
+            margin: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 1200px;
+        }
+        .footer-section {
+            margin-bottom: 10px;
+            width: 48%;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <img src="logo.png" alt="Logo de TDen - TDEMPIERE">
+        <h1>TDen - TDEMPIERE</h1>
+    </div>
+</header>
+
+<div class="content">
+    <h2>Demander une Démo</h2>
+    <form id="demo-form">
+        <div class="form-group">
+            <label for="prenom">Prénom :</label>
+            <input type="text" id="prenom" name="prenom" required>
+        </div>
+        <div class="form-group">
+            <label for="nom">Nom :</label>
+            <input type="text" id="nom" name="nom" required>
+        </div>
+        <div class="form-group">
+            <label for="entreprise">Entreprise :</label>
+            <input type="text" id="entreprise" name="entreprise" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email :</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+            <label for="modules">Modules :</label>
+            <select id="modules" name="modules[]" multiple required>
+                <option value="achat">Module Achat</option>
+                <option value="vente">Module Vente</option>
+                <option value="stock">Module Stock</option>
+                <option value="comptabilite">Comptabilité</option>
+                <option value="ressources_humaines">Ressources Humaines</option>
+                <option value="fabrication">Module Fabrication</option>
+            </select>
+        </div>
+        <button type="submit">Valider</button>
+    </form>
+
+    <a href="index.html" class="home-button">
+        <img src="home_icon.png" alt="Home Icon"> Retour à la page principale
+    </a>
+</div>
+
+<footer>
+    <div class="footer-content">
+        <div class="footer-section left">
+            <h3>À propos de TDEn</h3>
+            <p>TDEn est un fournisseur d'ERP open-source qui aide les entreprises à rationaliser leurs opérations.</p>
+        </div>
+        <div class="footer-section right">
+            <h3>Contact</h3>
+            <p>Email : contact@tden.com.tn</p>
+            <p>Téléphone : +216 29 776 544</p>
+        </div>
+    </div>
+    <div style="text-align: center; margin-top: 10px;">
+        <p>&copy; 2024 TDEn. Tous droits réservés.</p>
+    </div>
+</footer>
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script>
+    // Initialiser EmailJS
+    (function() {
+        emailjs.init("HDIPd6qmWaTuVHBKz"); // Remplacez YOUR_USER_ID par votre ID d'utilisateur EmailJS
+    })();
+
+    document.getElementById("demo-form").addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        // Récupérer les valeurs du formulaire
+        const prenom = document.getElementById("prenom").value;
+        const nom = document.getElementById("nom").value;
+        const entreprise = document.getElementById("entreprise").value;
+        const email = document.getElementById("email").value;
+        const modules = Array.from(document.getElementById("modules").selectedOptions).map(option => option.value).join(", ");
+
+        // Préparer les données pour l'email
+        const templateParams = {
+            prenom: prenom,
+            nom: nom,
+            entreprise: entreprise,
+            email: email,
+            modules: modules
+        };
+
+        // Envoyer l'email
+        emailjs.send('service_hns9k9a', 'template_z5zzycs', templateParams)
+            .then(function(response) {
+                alert('Votre demande a été envoyée avec succès !');
+                console.log('SUCCESS!', response.status, response.text);
+                document.getElementById("demo-form").reset(); // Réinitialiser le formulaire après l'envoi
+            }, function(error) {
+                alert('Une erreur est survenue. Veuillez réessayer.');
+                console.log('FAILED...', error);
+            });
+    });
+</script>
+
+</body>
+</html>
+</body>
+</html>
