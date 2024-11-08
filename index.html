@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TDen - TDEMPIERE</title>
+    <title>TDEn - TDEMPIERE</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -29,14 +29,9 @@
             display: flex;
             align-items: center;
         }
-        header img {
-            max-height: 120px;
-            max-width: 120px;
-            margin-right: 15px;
-        }
         header h1 {
             font-size: 1.8rem;
-            color: #000;
+            color: #002147; /* Couleur bleue très foncée */
         }
         .banner {
             background-color: #FFD700;
@@ -111,9 +106,9 @@
             transition: transform 0.3s;
         }
         .tile img {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
+            width: 150px; /* Taille augmentée */
+            height: 150px; /* Taille augmentée */
+            border-radius: 50%; /* Bord arrondi */
             margin-bottom: 10px;
         }
         .tile:hover {
@@ -122,20 +117,6 @@
         }
         .sidebar {
             width: 30%;
-        }
-        .form-group {
-            margin-bottom: 15px;
-        }
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
-        }
-        .form-group input, .form-group select, .form-group textarea {
-            width: 100%;
-            padding: 8px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
         }
         button {
             background-color: #007BFF;
@@ -188,12 +169,12 @@
                 width: 100%;
             }
             .contact-info {
-                width: 90%; /* Ajuste la largeur pour le mobile */
-                max-width: none; /* Retire la limite de largeur */
-                margin: 20px; /* Ajoute une marge */
-                position: relative; /* Réinitialise la position */
-                top: 0; /* Réinitialise la position */
-                right: 0; /* Réinitialise la position */
+                width: 90%;
+                max-width: none;
+                margin: 20px;
+                position: relative;
+                top: 0;
+                right: 0;
             }
         }
         .video-container {
@@ -206,22 +187,27 @@
             border: none;
             border-radius: 10px;
         }
-        .contact-info {
+        .contact-info, .demo-info {
             background-color: #FFD700;
             padding: 20px;
             border-radius: 10px;
             text-align: center;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            width: 90%;
-            max-width: 400px;
-            margin: 20px; /* Ajoute une marge pour éviter que cela ne touche les bords */
+            width: 45%; /* Réduit la largeur pour permettre un affichage côte à côte */
+            margin: 10px; /* Ajoute un peu d'espace entre les tuiles */
         }
-        .contact-info h2 {
+        .contact-info h2, .demo-info h2 {
             margin-bottom: 5px;
-            font-size: 1.2rem;
+            font-size: 1.5rem;
         }
-        .contact-info p {
+        .contact-info p, .demo-info p {
             margin: 5px 0;
+        }
+        .contact-demo-container {
+            display: flex; /* Utilise Flexbox pour aligner les deux tuiles côte à côte */
+            justify-content: space-between; /* Ajoute de l'espace entre les tuiles */
+            width: 100%; /* S'assure que la section occupe toute la largeur */
+            margin: 20px 0; /* Ajoute un peu d'espace en haut et en bas */
         }
     </style>
 </head>
@@ -238,11 +224,22 @@
     🎉 1 Mois d'essai gratuit - Découvrez notre ERP dès aujourd'hui ! 🎉
 </div>
 
-<div class="contact-info">
-    <h2>Contactez-nous</h2>
-    <p>Pour toute demande, n'hésitez pas à nous appeler :</p>
-    <p style="font-size: 1.5rem; font-weight: bold;">+216 29 776 544</p>
-    <button onclick="window.location.href='#contact';">Contactez-nous</button>
+<!-- Conteneur pour les tuiles Contactez-nous et Demander une Démo -->
+<div class="contact-demo-container">
+    <div class="contact-info">
+        <h2>Contactez-nous</h2>
+        <p>Pour toute demande, n'hésitez pas à nous appeler :</p>
+        <p style="font-size: 1.5rem; font-weight: bold;">+216 29 776 544</p>
+        <button onclick="window.location.href='#contact';">Contactez-nous</button>
+    </div>
+
+    <!-- Tuile Demande une Démo -->
+    <div class="demo-info">
+        <h2>Demander une Démo</h2>
+        <p>Découvrez comment TDEMPIERE peut transformer votre entreprise !</p>
+        <p>Remplissez notre formulaire de demande de démo et explorez toutes nos fonctionnalités.</p>
+       <button onclick="window.location.href='demande_demo.html';">Demander une Démo</button>
+    </div>
 </div>
 
 <nav>
@@ -260,14 +257,14 @@
 
 <div class="content-section">
     <div class="applications" id="applications">
-        <h2>Nos Applications</h2>
+        <h2>Modules Disponibles</h2>
         <div class="tile-container">
             <div class="tile">
                 <img src="fabrication_icon.png" alt="Module Fabrication">
                 <h3>Module Fabrication</h3>
                 <button onclick="window.location.href='module_fabrication.html';">En savoir plus</button>
             </div>
-            <div class="tile">
+			<div class="tile">
                 <img src="purchase_icon.png" alt="Module Achat">
                 <h3>Module Achat</h3>
                 <button onclick="window.location.href='module_achat.html';">En savoir plus</button>
@@ -283,7 +280,7 @@
                 <button onclick="window.location.href='module_stock.html';">En savoir plus</button>
             </div>
             <div class="tile">
-                <img src="finance_icon.png" alt="Module Comptabilité">
+                <img src="accounting_icon.png" alt="Module Comptabilité">
                 <h3>Module Comptabilité</h3>
                 <button onclick="window.location.href='module_comptabilite.html';">En savoir plus</button>
             </div>
@@ -292,51 +289,23 @@
                 <h3>Module Ressources Humaines</h3>
                 <button onclick="window.location.href='module_rh.html';">En savoir plus</button>
             </div>
-            <div class="tile">
-                <img src="crm_icon.png" alt="Module CRM">
-                <h3>Module CRM</h3>
-                <button onclick="window.location.href='module_crm.html';">En savoir plus</button>
-            </div>
         </div>
     </div>
 
     <div class="sidebar">
-        <div class="module">
-            <h3>Demander une Démo</h3>
-            <form>
-                <div class="form-group">
-                    <label for="demo-name">Nom :</label>
-                    <input type="text" id="demo-name" name="demo-name" required>
-                </div>
-                <div class="form-group">
-                    <label for="demo-email">Email :</label>
-                    <input type="email" id="demo-email" name="demo-email" required>
-                </div>
-                <div class="form-group">
-                    <label for="demo-type">Type de démo :</label>
-                    <select id="demo-type" name="demo-type" required>
-                        <option value="en_ligne">Démo en ligne</option>
-                        <option value="sur_site">Démo sur site</option>
-                        <option value="video">Vidéo de démo</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="modules">Modules :</label>
-                    <select id="modules" name="modules[]" multiple required>
-                        <option value="achat">Module Achat</option>
-                        <option value="vente">Module Vente</option>
-                        <option value="stock">Module Stock</option>
-                        <option value="comptabilite">Comptabilité</option>
-                        <option value="ressources_humaines">Ressources Humaines</option>
-                        <option value="fabrication">Module Fabrication</option>
-                    </select>
-                </div>
-                <button type="submit">Demander une Démo</button>
-            </form>
-            <div class="video-container">
-                <h4>Découvrez notre solution en action !</h4>
-                <iframe src="https://www.youtube.com/embed/vuDKoPpG3cQ" allowfullscreen></iframe>
-            </div>
+        <div class="video-container">
+            <h4>Découvrez notre solution en action !</h4>
+            <iframe src="https://www.youtube.com/embed/vuDKoPpG3cQ" allowfullscreen></iframe>
+        </div>
+        
+        <!-- Ajout de deux nouvelles vidéos -->
+        <div class="video-container">
+            <h4>Les Avantages d'un ERP</h4>
+            <iframe src="https://www.youtube.com/embed/vuDKoPpG3cQ" allowfullscreen></iframe> <!-- Remplacer VIDEO_ID_1 par l'ID de votre vidéo -->
+        </div>
+        <div class="video-container">
+            <h4>Présentation Générale d'iDempiere</h4>
+            <iframe src="https://www.youtube.com/embed/vuDKoPpG3cQ" allowfullscreen></iframe> <!-- Remplacer VIDEO_ID_2 par l'ID de votre vidéo -->
         </div>
     </div>
 </div>
