@@ -1,0 +1,229 @@
+/* Général : Fond, Police et Marges */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #EDEDED; /* Fond général */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-image: url('background.jpg');
+    background-size: cover;
+    padding: 20px;
+    color: #ffffff;
+    width: 100%;
+    position: relative;
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+}
+
+header h1 {
+    font-size: 1.8rem;
+    color: #002147; /* Couleur bleue très foncée */
+}
+
+/* Bannière */
+.banner {
+    background-color: #FFD700;
+    color: #000;
+    padding: 10px;
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+/* Section des modules */
+.module-header {
+    text-align: center;
+    margin: 20px 0;
+    color: #333;
+}
+
+.module-description {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #555;
+    margin: 20px auto;
+    max-width: 800px;
+}
+
+/* Vidéo */
+.video-section {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.video-section iframe {
+    width: 80%;
+    height: 400px;
+    border-radius: 10px;
+}
+
+/* Carrousel */
+.carousel {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 15px;
+    padding: 20px;
+}
+
+.carousel img {
+    width: 300px;
+    height: 200px;
+    border-radius: 10px;
+    scroll-snap-align: start;
+    transition: transform 0.3s;
+}
+
+.carousel img:hover {
+    transform: scale(1.05);
+}
+
+/* Footer */
+footer {
+    background-image: url('footer-background.jpg');
+    background-size: cover;
+    color: #000;
+    padding: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-content {
+    text-align: left;
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.footer-section {
+    margin-bottom: 10px;
+    width: 48%;
+}
+
+/* Media Query pour les petits écrans */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+    }
+    .footer-section {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}
+.home-button {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.home-button {
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            font-weight: bold;
+            color: #007BFF;
+        }
+    .home-button img {
+            width: 20px;
+            vertical-align: middle;
+            margin-right: 5px;
+        }
+
+.banner i {
+    margin-right: 10px; /* Espacement entre l'icône et le texte */
+    font-size: 1.5rem; /* Taille de l'icône */
+    vertical-align: middle; /* Aligner l'icône verticalement avec le texte */
+}
+.collapse-image {
+    width: 100%; /* Adjust the size as needed */
+    max-width: 400px; /* Limit the width */
+    margin-top: 15px; /* Space above the image */
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    display: block;
+}
+
+.module-tile {
+    background-color: #D3D3D3; /* Light gray background */
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+}
+
+.module-image {
+    width: 50px; /* Adjust size of the image */
+    height: 50px;
+    margin-right: 20px; /* Space between image and text */
+    border-radius: 50%;
+}
+
+.module-title {
+    font-size: 1.5rem;
+    color: #002147; /* Dark color for the title */
+    margin: 0;
+}
+.attractive-phrase {
+    font-size: 1.2rem;
+    color: #002147; /* Dark blue for contrast */
+    font-weight: bold;
+    margin-bottom: 10px; /* Space between the phrase and the title */
+    text-align: center; /* Optional: Align the phrase to the center */
+}
+.module-header {
+            display: inline-flex; /* Keeps the icon and text inline */
+            align-items: center;
+            font-size: 1.3rem; /* Smaller font size for the text */
+            color: #002147;
+            font-weight: bold;
+            margin: 0; /* Removes the default margin */
+        }
+        
+.module-header img {
+            width: 40px; /* Increase the icon size */
+            height: 40px; /* Adjust height to match the width */
+            margin-right: 5px; /* Reduces space between icon and text */
+        }
+		
+		    /* Basic styles for collapsibles */
+        .collapsible {
+            background-color: #f1f1f1;
+            color: #444;
+            cursor: pointer;
+            padding: 10px;
+            width: 100%;
+            text-align: left;
+            border: none;
+            outline: none;
+            font-size: 1.2rem;
+            transition: 0.3s;
+        }
+
+        .active, .collapsible:hover {
+            background-color: #ddd;
+        }
+
+        .content {
+            padding: 0 18px;
+            display: none;
+            overflow: hidden;
+            background-color: #f1f1f1;
+        }
