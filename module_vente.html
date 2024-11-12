@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module Achat - TDEn</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Général */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #EDEDED;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-x: hidden;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-image: url('background.jpg');
+            background-size: cover;
+            padding: 20px;
+            color: #ffffff;
+            width: 100%;
+        }
+
+        header .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        header h1 {
+            font-size: 1.8rem;
+            color: #002147;
+        }
+
+        .banner {
+            background-color: #FFD700;
+            color: #000;
+            padding: 10px;
+            width: 100%;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .content {
+            display: flex;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            padding: 20px;
+            width: 100%;
+        }
+
+        .video-section, .description-section {
+            flex: 1;
+            margin: 10px;
+        }
+
+        .video-section iframe {
+            width: 100%;
+            height: 400px;
+            border-radius: 10px;
+        }
+
+        .description-section {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 20px;
+            background-color: #FFF;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Style pour les zones collapsibles */
+        .collapse {
+            margin-top: 15px;
+        }
+
+        .collapse-button {
+            background-color: #333;
+            color: #fff;
+            padding: 15px;
+            font-size: 1rem;
+            border: none;
+            text-align: left;
+            cursor: pointer;
+            width: 100%;
+            border-radius: 5px;
+        }
+
+        .collapse-content {
+            padding: 15px;
+            font-size: 0.9rem;
+            color: #555;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            display: none;
+        }
+
+        .active .collapse-content {
+            display: block;
+        }
+
+        /* Carrousel */
+        .carousel-container {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .carousel {
+            display: flex;
+            animation: scrollCarousel 20s linear infinite;
+        }
+
+        .carousel img {
+            width: 300px;
+            height: 200px;
+            border-radius: 10px;
+            margin-right: 15px;
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+
+        .carousel img:hover {
+            transform: scale(1.05);
+        }
+
+        @keyframes scrollCarousel {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        /* Modal d'agrandissement d'image */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #fff;
+            border: none;
+            font-size: 2rem;
+            cursor: pointer;
+            border-radius: 50%;
+            padding: 5px 10px;
+        }
+
+        footer {
+            background-image: url('footer-background.jpg');
+            background-size: cover;
+            color: #000;
+            padding: 20px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 1200px;
+            margin: 10px auto;
+        }
+
+        .footer-section {
+            width: 48%;
+            margin: 10px 0;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                flex-direction: column;
+            }
+            .footer-content {
+                flex-direction: column;
+            }
+            .footer-section {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+        }
+
+        /* Style pour le bouton de fermeture d'image */
+        .close-image-btn {
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            border: none;
+            font-size: 1.2rem;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 100;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <img src="logo.png" alt="Logo de TDEn - TDEMPIERE">
+        <h1>TDEn - TDEMPIERE</h1>
+    </div>
+</header>
+
+<div class="banner">
+    <a href="index.html" class="home-button">
+        <img src="home_icon.png" alt="Home Icon"> 
+    </a>🎉 Optimisez vos ventes dès aujourd'hui avec notre module dédié – Profitez d'un mois d'essai gratuit et transformez votre gestion commerciale ! 🎉
+</div>
+
+<div class="content">
+    <div class="video-section">
+        <iframe src="https://www.youtube.com/embed/vuDKoPpG3cQ" allowfullscreen></iframe>
+    </div>
+    <div class="description-section">
+        <div class="module-header">
+            <img src="sales_icon.png" alt="Module Vente Icon">
+            <h2>Module Vente</h2>
+        </div>
+        <p class="attractive-phrase">Boostez vos performances commerciales et fidélisez vos clients grâce à une gestion des ventes rapide et efficace!</p>
+
+        <div class="collapse">
+            <button class="collapse-button">Gestion des clients</button>
+            <div class="collapse-content">
+                <p>Centralisez et personnalisez la gestion de vos clients pour des relations solides et durables !</p>
+                <a href="gestion_fournisseurs.html" class="link-button">En savoir plus</a>
+                <img src="fournisseur_image.jpg" alt="Gestion des fournisseurs" class="collapse-image" onclick="openModal(this)">
+                <button class="close-image-btn">×</button>
+            </div>
+        </div>
+
+        <div class="collapse">
+            <button class="collapse-button">Devis</button>
+            <div class="collapse-content">
+                <p>Créez et gérez vos devis avec précision, pour des propositions claires et convaincantes qui renforcent votre compétitivité .</p>
+                <a href="suivi_commandes.html" class="link-button">En savoir plus</a>
+                <img src="commande_image.jpg" alt="Suivi des commandes" class="collapse-image" onclick="openModal(this)">
+                <button class="close-image-btn">×</button>
+            </div>
+        </div>
+
+        <div class="collapse">
+            <button class="collapse-button">Facture</button>
+            <div class="collapse-content">
+                <p>Gérez vos factures avec facilité, assurez un suivi rigoureux et optimisez vos encaissements pour une trésorerie maîtrisée .</p>
+                <a href="gestion_stocks.html" class="link-button">En savoir plus</a>
+                <img src="stocks_image.jpg" alt="Gestion des stocks" class="collapse-image" onclick="openModal(this)">
+                <button class="close-image-btn">×</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="carousel-container">
+    <div class="carousel">
+        <img src="Vente_image1.jpg" alt="Image Vente 1" class="carousel-item" onclick="openModal(this)">
+        <img src="Vente_image2.jpg" alt="Image Vente 2" class="carousel-item" onclick="openModal(this)">
+        <img src="Vente_image3.jpg" alt="Image Vente 3" class="carousel-item" onclick="openModal(this)">
+        <img src="Vente_image4.jpg" alt="Image Vente 4" class="carousel-item" onclick="openModal(this)">
+    </div>
+</div>
+
+<!-- Modal -->
+<div id="modal" class="modal">
+    <img id="modal-image" src="" alt="Image agrandie">
+    <button id="close-btn" class="close-btn">×</button>
+</div>
+
+<footer>
+    <div class="footer-content">
+        <div class="footer-section">
+            <h3>À propos de TDEn</h3>
+            <p>TDEn est un fournisseur d'ERP open-source qui aide les entreprises à rationaliser leurs opérations.</p>
+        </div>
+        <div class="footer-section">
+            <h3>Contact</h3>
+            <p>Email : contact@tden.com.tn</p>
+            <p>Téléphone : +216 29 776 544</p>
+        </div>
+    </div>
+    <p>&copy; 2024 TDEn. Tous droits réservés.</p>
+</footer>
+
+<script>
+    // Fonction pour ouvrir l'image en modal
+    function openModal(imgElement) {
+        const modal = document.getElementById('modal');
+        const modalImage = document.getElementById('modal-image');
+        modal.classList.add('active');
+        modalImage.src = imgElement.src;
+    }
+
+    // Fermeture du modal
+    document.getElementById('close-btn').addEventListener('click', () => {
+        document.getElementById('modal').classList.remove('active');
+    });
+
+    // Fermeture du modal en cliquant à l'extérieur de l'image
+    document.getElementById('modal').addEventListener('click', (e) => {
+        if (e.target === document.getElementById('modal')) {
+            document.getElementById('modal').classList.remove('active');
+        }
+    });
+
+    // Fermeture de l'image en appuyant sur Échap
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+            const modal = document.getElementById('modal');
+            modal.classList.remove('active');
+        }
+    });
+
+    // Fonction pour les collapsibles
+    document.querySelectorAll('.collapse-button').forEach(button => {
+        button.addEventListener('click', () => {
+            const collapse = button.parentElement;
+            const content = collapse.querySelector('.collapse-content');
+            const allCollapsibles = document.querySelectorAll('.collapse');
+
+            // Ferme les autres collapsibles
+            allCollapsibles.forEach(c => {
+                if (c !== collapse) {
+                    c.classList.remove('active');
+                    c.querySelector('.collapse-content').style.display = 'none';
+                }
+            });
+
+            // Toggle l'état du collapsible cliqué
+            collapse.classList.toggle('active');
+            content.style.display = collapse.classList.contains('active') ? 'block' : 'none';
+        });
+    });
+</script>
+
+</body>
+</html>
